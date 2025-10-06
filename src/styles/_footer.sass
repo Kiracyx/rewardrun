@@ -1,0 +1,44 @@
+@use "variables" as *
+
+.footer
+    display: flex
+    flex-flow: column
+    justify-content: center
+    align-items: center
+    width: 100%
+    height: 100%
+    // border: 1px solid black
+    // background-color: $color-background-body
+    // background: url(./assets/images/svg/img2_footer.svg)
+    // background-position: center
+    // background-size: cover
+    // background-repeat: no-repeat
+    // background-attachment: fixed
+    // position: relative
+    color: $color-pumpkin
+    &__link
+        &:hover
+           text-decoration: underline
+
+// === footer legal ===
+.site-footer
+    max-width: 1040px
+    margin: 40px auto
+    padding: 20px 16px
+    color: $color-pumpkin
+    font-size: 13px
+
+.disclaimer
+    text-align: center
+
++media-max($tablet)
+    .footer
+        height: auto
+        padding: 40px 20px
+        background-position: center bottom
+
++media-max($mobile)
+    .footer
+        padding: 20px 10px
+        flex-direction: column
+        text-align: center

@@ -1,0 +1,91 @@
+@use "variables" as *
+// Contour
+// $color - contour main color
+// $width - contour width
+// $glow - add blur (true/false)
+// $multicolor - contour colors for neon/multicolor effect
+
+=outline-text($color, $width, $glow: false, $multicolor: null)
+  // WebKit stroke
+  -webkit-text-stroke: $width $color
+
+  // Multicolor contour (neon, comics)
+  @if $multicolor != null
+    $shadows: ()
+    $i: 1
+    @each $c in $multicolor
+    $offset: $i * $width
+    $shadows: append($shadows, #{$offset}px #{$offset}px 0 #{$c}, comma)
+    $shadows: append($shadows, -#{$offset}px #{$offset}px 0 #{$c}, comma)
+    $shadows: append($shadows, #{$offset}px -#{$offset}px 0 #{$c}, comma)
+    $shadows: append($shadows, -#{$offset}px -#{$offset}px 0 #{$c}, comma)
+    $i: $i + 1
+    text-shadow: $shadows
+
+  // Glow-effect
+    @else if $glow == true
+      text-shadow: 0 0 ($width * 2) $color, 0 0 ($width * 4) $color
+
+  // Black contour
+    @else
+    text-shadow:
+      $width $width 0 $color,
+     -$width $width 0 $color,
+      $width -$width 0 $color,
+     -$width -$width 0 $color
+
+@mixin flex-center
+  display: flex
+  justify-content: center
+  align-items: center
+
+// === supplement mixins ===
+=focus-ring
+  outline: 2px solid rgba($color-accent, .9)
+  outline-offset: 2px
+
+=surface($bgc: $surface-1, $brd: $color-border)
+  background: linear-gradient(180deg, $bgc, rgba(0, 0, 0, 0.99))
+  border: 1px solid $brd
+  border-radius: $radius-l
+  box-shadow: $shadow-1
+
+=btn-base
+  border: 1px solid $color-border
+  background: transparent
+  color: #fff
+  padding: 10px 16px
+  border-radius: $radius-m
+  cursor: pointer
+  font-weight: $font-weight-bold
+  transition: transform .06s, background .2s, border-color .2s, filter .2s
+  &:hover
+    background: $surface-2
+  &:active
+    transform: translateY(1px)
+  &:focus-visible
+    +focus-ring
+
+=btn-primary
+  background: $color-accent
+  border-color: transparent
+  color: #071018
+  &:hover
+    filter: brightness(1.05)
+
+=btn-accent
+  background: $color-accent-2
+  border-color: transparent
+  color: #1b0f06
+
+// универсальный миксин «закруглённый прямоугольник с рамкой» для аватаров
+=avatar-box($w: 48px, $h: $w, $radius: 12px, $border-color: rgba(255,255,255,.15))
+  width: $w
+  height: $h
+  border-radius: $radius
+  border: 1px solid $border-color
+  object-fit: cover
+  object-position: center
+  display: block
+  background: rgba(255,255,255,.05)
+  overflow: hidden

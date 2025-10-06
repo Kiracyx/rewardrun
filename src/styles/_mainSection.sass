@@ -1,0 +1,166 @@
+@use "variables" as *
+@use "mixins" as *
+
+.main
+    width: 100%
+    max-height: 100%
+    // padding: 5px 120px 30px 
+    // border: 1px solid black
+    &__title
+        font-family: $font-accent
+        font-style: italic
+        font-weight: $font-weight-bold
+        font-size: $font-size-title
+        text-align: center
+        color: $color-pumpkin
+        padding: 10px 25px
+        margin-bottom: 10px
+
+// === SURVEY ===
+.survey
+    margin: 32px 0
+    &__head
+        font-family: $font-accent
+        font-style: italic
+        font-weight: $font-weight-bold
+        font-size: $font-size-lg
+        text-align: center
+        color: $color-pumpkin
+        padding: 10px 25px
+        margin-bottom: 10px
+    &__card
+        +surface()
+        padding: 18px
+
+.quiz
+    &__card
+        border: 1px solid $color-border
+        border-radius: $radius-m
+        padding: 14px
+        background: $surface-1
+    &__done
+        text-align: center
+        font-family: $font-accent
+        font-size: $font-size-lg
+        padding: 16px 0
+.q-title
+    font-size: $font-size-lg
+    font-weight: $font-weight-bold
+    text-align: center
+    margin: 0 0 10px
+.options
+    display: grid
+    gap: 10px
+.option
+    display: flex
+    gap: 10px
+    align-items: center
+    padding: 10px 12px
+    border: 1px solid $color-border
+    border-radius: $radius-m
+    background: $surface-1
+    cursor: pointer
+    transition: all 0.2s ease
+    &:hover
+        transform: scale(1.01)
+        background: $color-violet-light
+        box-shadow: $shadow-2
+    &:active
+        transform: scale(0.98)
+// input
+//     accent-color: $color-accent
+//     &__nav
+//         display: flex
+//         justify-content: space-between
+//         gap: 10px
+//         margin-top: 12px
+
+// === COMMENTS ===
+.comments
+    margin: 28px 0
+    +surface()
+    padding: 16px 16px 10px
+    &__title
+        font-family: $font-accent
+        font-style: italic
+        font-weight: $font-weight-bold
+        font-size: $font-size-lg
+        text-align: center
+        color: $color-pumpkin
+        margin: 0 0 10px
+
+.comment__row
+    display: grid
+    grid-template-columns: auto 1fr
+    gap: 12px
+    align-items: start
+
+.comment__avatar
+    +avatar-box(48px, 48px, 12px)
+    @media (min-width: 768px)
+    .comment__avatar
+        +avatar-box(56px, 56px, 14px)
+
+    .comment__body
+        display: grid
+        gap: 6px
+
+.comment-form
+    display: flex
+    gap: 8px
+    margin-bottom: 12px
+    flex-wrap: wrap
+    input
+        flex: 1
+        min-width: 180px
+        padding: 10px 12px
+        border-radius: $radius-m
+        border: 1px solid $color-border
+        background: #0B1320
+        color: #fff
+    &:focus-visible
+        +focus-ring
+.comment-list
+    list-style: none
+    padding: 0
+    margin: 0
+    display: grid
+    gap: 10px
+.comment
+    background: $surface-1
+    border: 1px solid $color-border
+    border-radius: $radius-m
+    padding: 12px
+    &__meta
+        color: $color-muted
+        font-size: 13px
+        margin-bottom: 6px
+        display: flex
+        gap: 8px
+        align-items: center
+    &__text
+        margin: 0
+
++media-max($desktop)
+    .main
+        padding: 80px 0
+
++media-max($tablet)
+    .main
+        padding: 80px 0
+
+    .main__title
+        font-size: $font-size-lg-adapt
+
++media-max($mobile)
+    .main
+        padding: 40px 0
+
+    .main__title
+        font-size: $font-size-lg
+        margin-bottom: 32px
+
+    .recommended__product
+        flex-direction: column
+        align-items: center
+        gap: 16px

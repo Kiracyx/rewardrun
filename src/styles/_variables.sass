@@ -1,0 +1,69 @@
+// Font families
+$font-inter: "Inter", sans-serif
+$font-roboto: "Roboto", sans-serif
+$font-ubuntu: "Ubuntu", sans-serif
+$font-mono: "Spline Sans Mono", monospace
+$font-creepster: "Creepster", italic
+
+// Main font variables
+$font-base: $font-mono // main font (для body, текста, кнопок)
+$font-accent: $font-creepster // accent font (для заголовков, спец.блоков)
+
+// Font sizes
+$font-size-base: 16px
+$font-size-lg: 24px
+$font-size-lg-adapt: 32px
+$font-size-title: 48px
+
+// Font weightsz
+$font-weight-light: 300
+$font-weight-normal: 400
+$font-weight-bold: 700
+
+// Main colors
+$color-base: #1a1a1a
+$color-background-body: #02050E
+$color-background-body-al: #412227
+$color-pumpkin: #FF7E3D
+$color-pumpkin-light: #FF9D6C
+$color-violet: #41115F
+$color-violet-light: #50335B
+$color-rose-valley: #A24752
+
+// Breakpoints
+$desktop: 1260px
+$tablet: 744px
+$mobile: 480px
+
+// Adaptive screen mixin
+
+=media-max($size)
+    @media screen and (max-width: $size)
+        @content
+
+// Carousel
+// Carousel colors
+$nav-bg: rgba($color-background-body, 0.3)
+
+// Carousel sizes
+$card-width: 400px
+$card-height: 250px
+$gap: 10px
+$transition-speed: 0.3s
+
+// === supplement vars (safe defaults) ===
+$color-accent: $color-pumpkin !default
+$color-accent-2: $color-pumpkin-light !default
+$color-muted: $color-rose-valley !default
+$color-border: rgba($color-pumpkin,.12) !default
+
+$surface-1: rgba(255, 255, 255, 0.11) !default
+$surface-2: rgba($color-violet-light, 0.5) !default
+
+$radius-s: 8px 
+$radius-m: 10px 
+$radius-l: 14px 
+
+$shadow-1: 0 0 30px rgba($color-pumpkin-light, 0.353)
+$shadow-2: 0 0 30px rgba($color-pumpkin-light, 0.353)
+$shadow-3: 0 0 20px rgba($color-violet-light, 0.9), 0 0 40px rgba($color-violet-light, 0.6)

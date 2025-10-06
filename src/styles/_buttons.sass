@@ -1,0 +1,39 @@
+@use 'variables' as *
+@use 'mixins' as *
+
+
+.button
+    display: inline-block
+    padding: 14px 28px
+    font-size: $font-size-base
+    font-family: $font-base
+    font-weight: $font-weight-bold
+    text-decoration: none
+    color: $color-pumpkin
+    background: $color-violet
+    border: none
+    border-radius: 8px
+    box-shadow: 0 0 10px rgba($color-violet, 0.6)
+    transition: all 0.2s ease
+    cursor: pointer
+
+    &:hover
+        background: $color-violet-light
+        transform: scale(1.05)
+        box-shadow: $shadow-3
+
+    &:active
+        transform: scale(0.98)
+
+#backToTop
+    position: fixed
+    padding: 14px 28px
+    bottom: 60px
+    right: 60px
+    width: 10rem
+    height: 48px
+    z-index: 1000
+    display: none
+    justify-content: center
+    align-items: center
+    transition: all 0.2s ease

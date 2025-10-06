@@ -1,0 +1,75 @@
+@use "variables" as *
+
+.carousel-section
+    display: flex
+    justify-content: center
+
+.carousel-container
+    position: relative
+    width: 100%
+    max-width: 1800px
+    overflow: hidden
+
+.carousel
+    display: flex
+    overflow-x: auto
+    scroll-behavior: auto
+    gap: $gap
+    padding: 20px
+
+    &::-webkit-scrollbar
+        display: none
+
+    a
+        flex: 0 0 auto
+        text-decoration: none
+
+        img
+            width: $card-width
+            height: $card-height
+            object-fit: cover
+            border-radius: 8px
+            transition: transform $transition-speed
+            user-select: none
+            -webkit-user-drag: none
+
+        &:hover
+            transform: scale(1.05)
+            cursor: pointer
+            transition: transform $transition-speed
+            border-radius: 8px
+            box-shadow: 0 0 10px rgba($color-pumpkin-light, 0.9), 0 0 20px rgba($color-pumpkin-light, 0.6)
+        &:active
+            transform: scale(0.98)
+
+.nav
+    background: $nav-bg
+    border: none
+    padding: 0
+    cursor: pointer
+
+    &.left,
+    &.right
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        z-index: 1
+
+    &.left
+        left: 0
+
+    &.right
+        right: 0
+
+.arrow-icon
+    width: 50px
+    height: 100px
+    transition: filter 0.2s ease
+
+    &:hover
+        filter: brightness(300%)
+        transform: scale(1.1)
+        transition: filter 0.5s ease
+        // box-shadow: 0 0 20px rgba($color-violet-light, 0.9), 0 0 40px rgba($color-violet-light, 0.6)
+    &:active
+        transform: scale(0.98)
