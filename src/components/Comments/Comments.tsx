@@ -1,4 +1,4 @@
-import { FormEvent } from "react";
+import type { FormEvent } from "react";
 import { useComments } from "./useComments";
 
 export default function Comments() {
